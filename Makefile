@@ -1,11 +1,11 @@
 SRCPATH := $(shell pwd)
-DSTPATH := $(SRCPATH)/out
-EXEC := $(patsubst %.c,$(DSTPATH)/%,$(wildcard *.c))
+DESTPATH := $(SRCPATH)/out
+EXEC := $(patsubst %.c,$(DESTPATH)/%,$(wildcard *.c))
 
 all: $(EXEC)
 
-$(EXEC): $(DSTPATH)/%: $(SRCPATH)/%.c
-	@mkdir -p $(DSTPATH)
+$(EXEC): $(DESTPATH)/%: $(SRCPATH)/%.c
+	@mkdir -p $(DESTPATH)
 	gcc -o $@ $<
 
 clean:
